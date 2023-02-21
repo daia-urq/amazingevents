@@ -1,0 +1,101 @@
+/* html {
+    ---verde:#006B65;
+    --amarillo: #F3D129;
+    --blanco:#FFFFFF;
+    --grisoscuro:#A8B1B8;
+    --grisclaro:#f5f5f5;
+    --negro:#231F20
+} */
+
+.active{
+    background-image: linear-gradient(to right,#f1d95d , #F3D129 ) !important;
+    color: #FFFFFF!important;
+    box-shadow:0.2rem 0.2rem 0.4rem #A8B1B8;
+}
+
+header>ul>li>a {
+    color: #006B65 !important;
+}
+
+.barra{
+    background-image: linear-gradient(to right,#00a8a0 , #006B65 , #004946 );
+    padding: 1.5rem  !important;
+    margin-top: 1rem;
+    color: #FFFFFF;
+    border-radius: 2rem;
+    box-shadow:0.2rem 0.2rem 0.4rem #A8B1B8;
+}
+
+main{
+    color: #006B65;
+}
+
+footer{
+    background-image: linear-gradient(to right,#ffdf3d , #F3D129 ) !important;
+    color: #FFFFFF;
+    margin-top: 2rem;
+}
+
+.btn{
+    background-color: #F3D129;
+    color: #FFFFFF;
+    box-shadow:0.2rem 0.2rem 0.4rem #A8B1B8;
+}
+
+.buscador{
+    margin-top: 2rem !important;
+}
+
+.card{
+    box-shadow:0.2rem 0.2rem 0.4rem #A8B1B8;
+}
+
+#cardimg{    
+    object-fit:cover;
+    box-shadow:0.2rem 0.2rem 0.4rem #A8B1B8;
+    width: 90%;
+    height: 90%;
+}
+
+.card-body, #cardimg{
+    margin: 1rem;
+}
+.details{
+    margin-top: 3rem;
+}
+
+td{
+    font-size: x-small;
+}
+
+.titulo{
+    background-image: linear-gradient(to right,#f1d95d , #F3D129 ) !important;
+    font-size: large;
+    font-weight:600;
+    
+}
+
+table, th, td{
+    color: #004946;
+    margin-top: 3rem;
+    border: 1px solid #004946 !important;    
+
+}
+
+.table>thead>tr>th, .table>tbody>tr>th{
+    color: #FFFFFF !important;
+}
+
+
+table, .form{
+    box-shadow:0.2rem 0.2rem 0.4rem #A8B1B8;
+}
+
+header>a>img{
+    width:70px;
+
+}
+
+.redes{
+    width:20px;
+}
