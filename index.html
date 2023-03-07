@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./asset/LogoMightyDucks-01.png">
+    <link rel="icon" href="./asset/IconoAmazingvents.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,200" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/style.css">
     <title>Home</title>
 </head>
 
@@ -18,7 +18,7 @@
     <header
         class="container-fluid header d-flex flex-wrap justify-content-center align-items-center justify-content-md-between p-3 border-bottom">
 
-        <a href=""><img src="./asset/Logo Amazing Events.png" alt="logotipo Amazing Events"></a>
+        <a href=""><img src="./asset/LogoAmazingvents.png" alt="logotipo Amazing Events" class="m-3 m-md-1"></a>
 
         <ul class="nav nav-pills d-flex justify-content-center justify-content-sm-end">
             <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
@@ -31,18 +31,19 @@
 
     <main class="container-fluid">
         <div class="container-fluid d-flex barra justify-content-between align-items-center">
-            <span class="material-symbols-outlined">
+            <a href="./stats.html"><span class="material-symbols-outlined">
                 arrow_back_ios
-            </span>
+            </span></a>
 
             <h3>Home</h3>
 
-            <span class="material-symbols-outlined">
+            <a href="./upcomig.html"><span class="material-symbols-outlined">
                 arrow_forward_ios
-            </span>
+            </span></a>
         </div>
 
-        <div class="container-fluid buscador d-flex flex-wrap justify-content-lg-between justify-content-center m-3 align-items-center">
+        <div
+            class="container-fluid buscador d-flex flex-wrap justify-content-lg-between justify-content-center m-3 align-items-center">
             <div class="d-flex  flex-wrap justify-content-center check ">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
@@ -70,63 +71,20 @@
                 <form class="d-flex m-3 justify-content-end align-items-end" role="search">
                     <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <label for="search"><span class="material-symbols-outlined">
-                        search
-                    </span>
-                </label>
+                            search
+                        </span>
+                    </label>
                 </form>
             </div>
         </div>
 
-        <div class="d-flex flex-wrap gap-3 justify-content-center">
-            <div class="card p-3">
-                <img src="./asset/Music_Concert.jpg" class="card-img-top" alt="jugador de hockey">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Titulo</h5>
-                    <p class="card-text">Texto descriptivo</p>
-                </div>
-                <div class="card-footer d-flex justify-content-between align-items-center ">
-                    <p class="m-0">Price $00000</p>
-                    <a href="./details.html" class="btn">ver más</a>
-                </div>
-            </div>
-
-            <div class="card p-3 ">
-                <img src="./asset/Costume_Party.jpg" class="card-img-top" alt="jugador de hockey">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Titulo</h5>
-                    <p class="card-text">Texto descriptivo</p>
-                </div>
-                <div class="card-footer d-flex justify-content-between align-items-center ">
-                    <p class="m-0">Price $00000</p>
-                    <a href="./details.html" class="btn">ver más</a>
-                </div>
-            </div>
-            <div class="card p-3">
-                <img src="./asset/Food_Fair.jpg" class="card-img-top" alt="jugador de hockey">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Titulo</h5>
-                    <p class="card-text">Texto descriptivo</p>
-                </div>
-                <div class="card-footer d-flex justify-content-between align-items-center ">
-                    <p class="m-0">Price $00000</p>
-                    <a href="./details.html" class="btn">ver más</a>
-                </div>
-            </div>
-            <div class="card p-3">
-                <img src="./asset/Marathon.jpg" class="card-img-top" alt="jugador de hockey">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Titulo</h5>
-                    <p class="card-text">Texto descriptivo</p>
-                </div>
-                <div class="card-footer d-flex justify-content-between align-items-center ">
-                    <p class="m-0">Price $00000</p>
-                    <a href="./details.html" class="btn">ver más</a>
-                </div>
-            </div>
+        <div class="d-flex flex-wrap gap-3 justify-content-center" id="contenedor">
+         
         </div>
     </main>
 
-    <footer class="container-fluid d-flex flex-wrap justify-content-sm-between justify-content-center border-top align-items-center">
+    <footer
+        class="container-fluid d-flex flex-wrap justify-content-sm-between justify-content-center border-top align-items-center">
         <div>
             <ul class="list-unstyled d-flex p-3 p-sm-2">
                 <li class="ms-3"><a href="#"><img class="redes" src="./asset/instagram.png" alt="instagram"></a></li>
@@ -142,11 +100,10 @@
 
 
 
-
-
+    <script src="./scrpit/data.js"></script>
+    <script src="./scrpit/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </body>
-
 </html>

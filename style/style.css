@@ -11,10 +11,12 @@ rosa claro:#F27E93
 azul: #274873
 celeste:#6C9BD9
 crema:#F2D5D5 */
+
 body{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 header {
@@ -59,8 +61,8 @@ header>ul>li>a:hover {
     box-shadow: 0.2rem 0.2rem 0.4rem #A8B1B8;
 }
 
-.material-symbols-outlined {
-
+a>.material-symbols-outlined {
+    padding-top: 0.5rem;
     color: #F22248;
     font-size: xx-large;
     font-variation-settings:
@@ -143,11 +145,12 @@ form label {
 .details {
     margin-top: 2rem;
 }
+
 #card:hover{
-    background-color: #f3f3f3;
-    border: 2px solid #F22248;
-    color: #274873;
-    border: 1px solid #274873;
+    background-color: #f3f3f3 !important;
+    border: 2px solid #F22248 !important;
+    color: #274873 !important;
+    border: 1px solid #274873 !important;
 }
 
 .conCard{
@@ -158,8 +161,6 @@ min-height: 70vh;
     object-fit: cover;
     min-height: 50vh;
 }
-
-
 
 td {
     font-size: medium;
@@ -199,8 +200,4 @@ tr:hover {
  background-color: #F2D5D5;
  color:  #F27E93 !important;
  
-}
-.form-check-input-checked-border-color{
- color: #F22248;
- background-color: yellow;
 }
