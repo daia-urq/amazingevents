@@ -1,26 +1,22 @@
-let contenedorCard = document.getElementById("contenedor")
-let cardHtml = "";
+let contenedorCard = document.getElementById("contenedor");
+let categoriasInput = document.getElementById("categoria");
+let busqueda = document.getElementById('search');
 
-filtrarEventosPasados(data.events, data.currentDate)
-contenedorCard.innerHTML = cardHtml;
 
-function filtrarEventosPasados(lista, fecha){
-    for (let aux of lista) {
-        if (aux.date < fecha) {
-            cardHtml += `
-        <div  class="card p-3">
-        <img id="imgCard" src="${aux.image}" class="card-img-top" alt="imagen de evento">
-        <div class="card-body text-center">
-            <h5 class="card-title">${aux.name}</h5>
-            <p class="card-text">${aux.category}</p>
-            <p class="card-text">${aux.date}</p>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center ">
-            <p class="m-0">$ ${aux.price}</p>          
-            <a href="./details.html" class="btn">ver más</a>
-        </div>
-        </div>
-    `
-        }
-    }
+let listaPasada = filtrarEventosPasados(data);
+
+busqueda.addEventListener('input', ()=>{
+  superFiltro(listaPasada, busqueda.value);
+});
+
+categoriasInput.addEventListener('change', ()=>{
+  superFiltro(listaPasada);
+});
+
+mostrarEventos(listaPasada);
+mostrarCheck(listaDeCategoria(data.events));
+
+function filtrarEventosPasados(lista) {
+  let eventosPasados = lista.events.filter((evento) => evento.date < lista.currentDate)
+  return eventosPasados;
 }

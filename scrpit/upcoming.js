@@ -1,25 +1,21 @@
-let contenedorCard = document.getElementById("contenedor")
-let cardHtml = "";
-filtrarEventosFuturos(data.events,data.currentDate)
-contenedorCard.innerHTML = cardHtml;
+let contenedorCard = document.getElementById("contenedor");
+let categoriasInput = document.getElementById("categoria");
+let busqueda = document.getElementById('search');
 
-function filtrarEventosFuturos(lista, fecha){ 
-    for (let aux of lista) {
-        if( aux.date >=  fecha){
-            cardHtml += `
-            <div  class="card p-3">
-            <img id="imgCard" src="${aux.image}" class="card-img-top" alt="imagen de evento">
-            <div class="card-body text-center">
-                <h5 class="card-title">${aux.name}</h5>
-                <p class="card-text">${aux.category}</p>
-                <p class="card-text">${aux.date}</p>
-            </div>
-            <div class="card-footer d-flex justify-content-between align-items-center ">
-                <p class="m-0">$ ${aux.price}</p>          
-                <a href="./details.html" class="btn">ver más</a>
-            </div>
-            </div>
-        `
-        }    
-    }
+let listaFutura = filtrarEventosFuturos(data);
+
+busqueda.addEventListener('input', ()=>{
+  superFiltro(listaFutura, busqueda.value);
+});
+
+categoriasInput.addEventListener('change', ()=>{
+  superFiltro(listaFutura);
+});
+
+mostrarEventos(listaFutura);
+mostrarCheck(listaDeCategoria(data.events));
+
+function filtrarEventosFuturos(lista){
+  let eventosFuturos = lista.events.filter((evento) => evento.date >= lista.currentDate)
+  return eventosFuturos;
 }
