@@ -73,7 +73,7 @@ a>.material-symbols-outlined {
 }
 
 main {
-    color: #274873;    
+    color: #274873;
     min-height: 80vh !important;
 }
 
@@ -114,20 +114,12 @@ main {
     font-weight: 500;
 }
 
-.card-img-top {
-    object-fit: cover;
-    box-shadow: 0.2rem 0.2rem 0.4rem #A8B1B8;
-    min-height: 30vh;
-    max-width: 38vh;
-    background-color: #F22248;
-    border-radius: 1rem;
-}
-
 footer {
     background-color: #F22248 !important;
     color: #e9e9e9;
     min-height: 10vh !important;
     padding-right: 2rem !important;
+    margin-top: 3rem;
 }
 
 header>a>img {
@@ -153,13 +145,15 @@ form label {
     border: 1px solid #274873 !important;
 }
 
+/* contenedor de carta de detail */
 .conCard{
 min-height: 70vh;
 }
 
+
 #cardimg{
     object-fit: cover;
-    min-height: 50vh;
+    min-height: 60vh;
 }
 
 td {
@@ -177,18 +171,20 @@ td {
 table,
 th,
 td {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
     border: 1px solid #6C9BD9 !important;
-}
-
-.table>thead>tr>th,
-.table>tbody>tr>th {
-    color: #FFFFFF !important;
+    font-weight:  600;
+    color: #274873;
+    min-width: 25vw;
 }
 
 table,
 .form {
     box-shadow: 0.2rem 0.2rem 0.4rem #A8B1B8;
+}
+
+#tabla1 > h3 , #tabla2 > h3, #tabla3 > h3{
+    margin-top: 3rem;
 }
 
 tr:hover {
@@ -199,7 +195,7 @@ tr:hover {
 .form-check-input{
  background-color: #F2D5D5;
  color:  #F27E93 !important;
- 
+
 }
 
 #cardDetail{
@@ -210,3 +206,10 @@ tr:hover {
     color:#F22248;
 }
 
+
+#imgCard{
+    object-fit:cover;
+    width: 20vw;
+    height: 30vh;
+    
+ }

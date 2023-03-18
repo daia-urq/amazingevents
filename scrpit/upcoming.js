@@ -1,21 +1,34 @@
 let contenedorCard = document.getElementById("contenedor");
 let categoriasInput = document.getElementById("categoria");
 let busqueda = document.getElementById('search');
+let urlApi = 'https://mindhub-xj03.onrender.com/api/amazing';
 
-let listaFutura = filtrarEventosFuturos(data);
 
-busqueda.addEventListener('input', ()=>{
-  superFiltro(listaFutura, busqueda.value);
-});
+obtenerrDatos();
 
-categoriasInput.addEventListener('change', ()=>{
-  superFiltro(listaFutura);
-});
 
-mostrarEventos(listaFutura);
-mostrarCheck(listaDeCategoria(data.events));
+async function obtenerrDatos() {
+  try {
+    const response = await fetch(urlApi)
 
-function filtrarEventosFuturos(lista){
-  let eventosFuturos = lista.events.filter((evento) => evento.date >= lista.currentDate)
-  return eventosFuturos;
+    const data = await response.json();
+
+    let listaFutura = filtrarEventosFuturos(data);
+   
+    mostrarEventos(listaFutura);
+    mostrarCheck(listaDeCategoria(listaFutura));
+
+    busqueda.addEventListener('input', () => {     
+      superFiltro(listaFutura, busqueda.value);
+    });
+
+    categoriasInput.addEventListener('change', () => {
+      superFiltro(listaFutura, "");
+    });
+
+  } catch (error) {
+    console.log(error);
+
+  }
 }
+
