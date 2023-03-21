@@ -28,10 +28,10 @@ async function obtenerDatos() {
         mostrarPrimerTabla(mayor, menor, arrayMayorCapacidad[0]);
 
         let statsEventosPasados = statsTabla2(eventosPasados);
-        
-        let starsEventosFuturos = statsTabla2(eventosFuturos );
 
-        mostrarTabla2(statsEventosPasados,"Past", contenedorTabla3);
+        let starsEventosFuturos = statsTabla2(eventosFuturos);
+
+        mostrarTabla2(statsEventosPasados, "Past", contenedorTabla3);
         mostrarTabla2(starsEventosFuturos, "Upcoming", contenedorTabla2);
 
     } catch (error) {
@@ -59,8 +59,8 @@ function mostrarPrimerTabla(mayor, menor, capacidad) {
     contenedorTabla.innerHTML = table;
 }
 
-function mostrarTabla2(array, texto, contenedor ) {
-    let table = `<h3> ` +  texto + ` events statistics by category </h3><table  class="table"><tr><td class="titulo">Category</td> <td class="titulo">Revenues</td><td class="titulo">Percentage of attendance</td></tr>`;
+function mostrarTabla2(array, texto, contenedor) {
+    let table = `<h3> ` + texto + ` events statistics by category </h3><table  class="table"><tr><td class="titulo">Category</td> <td class="titulo">Revenues</td><td class="titulo">Percentage of attendance</td></tr>`;
 
     array.forEach(aux => {
         table += `
@@ -92,7 +92,7 @@ function ordenarPorCapacidad(array) {
 function calculoPorcentajeAsistencia(array) {
     let porcentajeAsistencia = []
     array.forEach(element => {
-        porcentajeAsistencia.push( Number((element.assistance / element.capacity) * 100).toFixed(2));
+        porcentajeAsistencia.push(Number((element.assistance / element.capacity) * 100).toFixed(2));
     });
     return porcentajeAsistencia;
 }
@@ -129,42 +129,45 @@ function menorPorcentajeAsistencia(array) {
 
 function statsTabla2(array) {
     let categorias = listaDeCategoria(array);
-    let arrayFinal = [];  
+    let arrayFinal = [];
 
-    for (let i = 0; i < categorias.length; i++) {
-        let precioUnitario ;
+
+    categorias.map((categoria) => {
+        let precioUnitario;
         let asistenciaUnitario;
         let ganancia = 0;
-        let arrayPorcategoria = []
-        let asistenciaTotal =0; 
+        let arrayPorcategoria = [];
+        let asistenciaTotal = 0;
 
-        for (let j = 0; j < array.length; j++) {          
-            precioUnitario=0
-            asistenciaUnitario=0
+        array.map((elemento) => {
+            precioUnitario = 0
+            asistenciaUnitario = 0
 
-            if (array[j].category.toLowerCase() == categorias[i]) {               
-                
-                arrayPorcategoria.push(array[j]);      
-                precioUnitario = array[j].price;
-      
-                if (array[j].hasOwnProperty("assistance")) {
-                    asistenciaUnitario = array[j].assistance;                   
-                } else {                  
-                    asistenciaUnitario = array[j].estimate;
-                }          
+            if (elemento.category.toLowerCase() == categoria) {
+                arrayPorcategoria.push(elemento);
+                precioUnitario = elemento.price;
+
+                if (elemento.hasOwnProperty("assistance")) {
+                    asistenciaUnitario = elemento.assistance;
+                } else {
+                    asistenciaUnitario = elemento.estimate;
+                }
             }
 
             ganancia += precioUnitario * asistenciaUnitario;
-            asistenciaTotal += asistenciaUnitario; 
-        }
+            asistenciaTotal += asistenciaUnitario;
+
+        });
 
         let acum3 = 0;
-        let capacidad =  arrayPorcategoria.reduce((acc, elemento) => acc + elemento.capacity, acum3)
+        let capacidad = arrayPorcategoria.reduce((acc, elem) => acc + elem.capacity, acum3)
 
-        porcentajeCapacidad = (asistenciaTotal/capacidad)*100        
-        let arrayCategoria = [categorias[i], ganancia, Number(porcentajeCapacidad.toFixed(2))];
+        porcentajeCapacidad = (asistenciaTotal / capacidad) * 100
+        let arrayCategoria = [categoria, ganancia, Number(porcentajeCapacidad.toFixed(2))];
 
         arrayFinal.push(arrayCategoria)
-    }
+
+    });
+
     return arrayFinal;
 }
