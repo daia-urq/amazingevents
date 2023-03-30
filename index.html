@@ -30,32 +30,55 @@
     </header>
 
     <main class="container-fluid">
-        <div class="container-fluid d-flex barra justify-content-between align-items-center">
-            <a href="./stats.html"><span class="material-symbols-outlined">
-                arrow_back_ios
-            </span></a>
+        <div id="app">
+            <div class="container-fluid d-flex barra justify-content-between align-items-center">
+                <a href="./stats.html"><span class="material-symbols-outlined">
+                        arrow_back_ios
+                    </span></a>
 
-            <h3>Home</h3>
+                <h3>Home</h3>
 
-            <a href="./upcomig.html"><span class="material-symbols-outlined">
-                arrow_forward_ios
-            </span></a>
-        </div>
-
-        <div
-            class="container-fluid buscador d-flex flex-wrap justify-content-lg-between justify-content-center m-3 align-items-center">
-            <div class="d-flex  flex-wrap justify-content-center check" id="categoria">
-                            
+                <a href="./upcomig.html"><span class="material-symbols-outlined">
+                        arrow_forward_ios
+                    </span></a>
             </div>
 
-            <div class="d-flex m-3 justify-content-end align-items-end">               
-                    <input id="search" class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
-                    <label for="search"><span class="material-symbols-outlined">search</span></label>              
-            </div>
-        </div>
+            <div  class="container-fluid buscador d-flex flex-wrap justify-content-lg-between justify-content-center m-3 align-items-center">
+                <div class="d-flex  flex-wrap justify-content-end check" id="categoria">
+                    <div v-for="categoria of categorias" class="form-check form-check-inline">
+                        <input v-model="checkSeleccionados" class="form-check-input" type="checkbox" :id="categoria"
+                            :value="categoria">
+                        <label class="form-check-label" :for="categoria">{{categoria}}</label>
+                    </div>
+                </div>
 
-        <div class="d-flex flex-wrap gap-3 justify-content-center" id="contenedor">
-         
+                <div class="d-flex m-3 justify-content-end align-items-end">
+                    <input id="search" class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
+                        v-model="texto">
+                    <!-- filtros anteriores separados -->
+                    <!-- {{filtrarPorNombre}}
+                    {{filtrarPorCategoria}} -->
+                    {{filtroCombinado}}
+                    <label for="search"><span class="material-symbols-outlined">search</span></label>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3 justify-content-center" id="contenedor">
+                <h6 v-if="!eventos.length">No results for this search</h6>
+                <div v-for="evento of eventos" class="card cardss p-3">
+                    <img id="imgCard" :src="evento.image || './asset/sinImagen.png'" class="card-img-top"
+                        alt="imagen de evento">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{evento.name}}</h5>
+                        <p class="card-text">{{evento.category}}</p>
+                        <p class="card-text">{{evento.date}}</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center ">
+                        <p class="m-0">$ {{evento.price}}</p>
+                        <a href="./details.html?id=" class="btn">ver más</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -75,12 +98,12 @@
     </footer>
 
 
-
-    <script src="./scrpit/data.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./scrpit/function.js"></script>
     <script src="./scrpit/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </body>
+
 </html>

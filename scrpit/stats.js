@@ -140,8 +140,8 @@ function statsTabla2(array) {
         let asistenciaTotal = 0;
 
         array.map((elemento) => {
-            precioUnitario = 0
-            asistenciaUnitario = 0
+            precioUnitario = 0;
+            asistenciaUnitario = 0;
 
             if (elemento.category.toLowerCase() == categoria) {
                 arrayPorcategoria.push(elemento);
@@ -153,20 +153,15 @@ function statsTabla2(array) {
                     asistenciaUnitario = elemento.estimate;
                 }
             }
-
             ganancia += precioUnitario * asistenciaUnitario;
             asistenciaTotal += asistenciaUnitario;
 
         });
-
         let acum3 = 0;
-        let capacidad = arrayPorcategoria.reduce((acc, elem) => acc + elem.capacity, acum3)
-
-        porcentajeCapacidad = (asistenciaTotal / capacidad) * 100
+        let capacidad = arrayPorcategoria.reduce((acc, elem) => acc + elem.capacity, acum3);
+        porcentajeCapacidad = (asistenciaTotal / capacidad) * 100;
         let arrayCategoria = [categoria, ganancia, Number(porcentajeCapacidad.toFixed(2))];
-
-        arrayFinal.push(arrayCategoria)
-
+        arrayFinal.push(arrayCategoria);
     });
 
     return arrayFinal;

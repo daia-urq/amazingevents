@@ -1,3 +1,6 @@
+
+
+
 let urlApi = 'https://mindhub-xj03.onrender.com/api/amazing';
 const query = location.search;
 let parametro = new URLSearchParams(query);
@@ -13,11 +16,11 @@ async function obtenerrDatos() {
     const response = await fetch(urlApi)
 
     const data = await response.json();
-    
+
     let evento = data.events.find(aux => aux._id == id);
-    
+
     mostrarCard(evento)
-  
+
   } catch (error) {
     console.log(error);
 
@@ -26,10 +29,10 @@ async function obtenerrDatos() {
 
 
 
-function mostrarCard(evento){
-    let card = "";
+function mostrarCard(evento) {
+  let card = "";
 
-    card = `<div id="cardDetail" class="card mb-3">
+  card = `<div id="cardDetail" class="card mb-3">
     <div class="row">
         <div class="col-md-8">
             <img id="cardimg" src=${evento.image}" class="img-fluid rounded-start" alt="...">
@@ -42,13 +45,13 @@ function mostrarCard(evento){
             <div class="card-body">            
                 <h6>Category: ${evento.category}</h6>   
                 <h6>Place: ${evento.place}</h6>                                         
-                <h6>Capacity: ${evento.capacity}</h6>` 
-                if (evento.hasOwnProperty("assistance")) {
-                  card = card + `<h6>Assistance: ${evento.assistance}</h6> `
-                }else{
-                  card = card + `<h6>Estimate: ${evento.estimate}</h6> `
-                }      
-                card = card +` 
+                <h6>Capacity: ${evento.capacity}</h6>`
+  if (evento.hasOwnProperty("assistance")) {
+    card = card + `<h6>Assistance: ${evento.assistance}</h6> `
+  } else {
+    card = card + `<h6>Estimate: ${evento.estimate}</h6> `
+  }
+  card = card + ` 
                 <h5 class="">Date: ${evento.date}</h5>
                 <h5>$ ${evento.price}</h5>             
             </div>                       
@@ -57,8 +60,8 @@ function mostrarCard(evento){
     
     </div>`
     ;
-    
-    contenedor.innerHTML = card;
+
+  contenedor.innerHTML = card;
 }
 
 
