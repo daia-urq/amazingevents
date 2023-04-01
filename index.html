@@ -44,12 +44,12 @@
             </div>
 
             <div  class="container-fluid buscador d-flex flex-wrap justify-content-lg-between justify-content-center m-3 align-items-center">
-                <div class="d-flex  flex-wrap justify-content-end check" id="categoria">
-                    <div v-for="categoria of categorias" class="form-check form-check-inline">
+                <div class="d-flex  flex-wrap justify-content-center justify-content-md-start check" id="categoria">
+                    <!-- <div v-for="categoria of categorias" class="form-check form-check-inline">
                         <input v-model="checkSeleccionados" class="form-check-input" type="checkbox" :id="categoria"
                             :value="categoria">
                         <label class="form-check-label" :for="categoria">{{categoria}}</label>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="d-flex m-3 justify-content-end align-items-end">
@@ -58,13 +58,13 @@
                     <!-- filtros anteriores separados -->
                     <!-- {{filtrarPorNombre}}
                     {{filtrarPorCategoria}} -->
-                    {{filtroCombinado}}
+                    <!-- {{filtroCombinado}} -->
                     <label for="search"><span class="material-symbols-outlined">search</span></label>
                 </div>
             </div>
 
             <div class="d-flex flex-wrap gap-3 justify-content-center" id="contenedor">
-                <h6 v-if="!eventos.length">No results for this search</h6>
+                <!-- <h6 v-if="!eventos.length">No results for this search</h6>
                 <div v-for="evento of eventos" class="card cardss p-3">
                     <img id="imgCard" :src="evento.image || './asset/sinImagen.png'" class="card-img-top"
                         alt="imagen de evento">
@@ -77,7 +77,7 @@
                         <p class="m-0">$ {{evento.price}}</p>
                         <a href="./details.html?id=" class="btn">ver más</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </main>
